@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#encrypted password digest
+gem 'bcrypt', '~> 3.1.7'
 #use recent ruby, not the old one
 ruby '2.2.0'
 # coderay for rake routes

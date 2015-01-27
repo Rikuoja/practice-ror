@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
+  resources :users
+
+  get 'signup', to: 'users#new'
+
+  get 'signin', to: 'sessions#new'
+
+  delete 'signout', to: 'sessions#destroy'
+
   root 'breweries#index'
 
   get 'kaikki_bisset', to: 'beers#index'
+
+  resource :session, only: [:new, :create, :delete]
 
   resources :ratings, only: [:index, :new, :create, :destroy]
 
