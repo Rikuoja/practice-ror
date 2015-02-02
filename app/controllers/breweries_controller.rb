@@ -64,14 +64,15 @@ class BreweriesController < ApplicationController
 
   private
 
-  def authenticate
-    admin_accounts = { "admin" => "secret", "pekka" => "beer", "arto" => "foobar", "matti" => "ittam"}
-    authenticate_or_request_with_http_basic do |username, password|
-      admin_accounts[username] == password
-    end
-  end
+    def authenticate
+      admin_accounts = { "admin" => "sekret", "pekka" => "beer", "arto" => "foobar", "matti" => "ittam"}
 
-  # Use callbacks to share common setup or constraints between actions.
+      authenticate_or_request_with_http_basic do |username, password|
+        admin_accounts[username] == password
+      end
+    end
+
+    # Use callbacks to share common setup or constraints between actions.
     def set_brewery
       @brewery = Brewery.find(params[:id])
     end

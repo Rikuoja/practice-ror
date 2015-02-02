@@ -39,7 +39,6 @@ class BeersController < ApplicationController
         format.json { render json: @beer.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   # PATCH/PUT /beers/1

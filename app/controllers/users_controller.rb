@@ -40,7 +40,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    if current_user == @user
     respond_to do |format|
       if user_params[:username].nil? and @user == current_user and @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -50,22 +49,19 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-      end
   end
 
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
     if current_user == @user
-    @user.destroy
+      @user.destroy
+      session[:user_id] = nil
+    end
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
-    end
-    #Destroy ratings by the user
-    Rating.all.select{ |r| r.user_id==@user.id }.each{ |r| r.delete }
-    redirect_to :root
   end
 
   private
