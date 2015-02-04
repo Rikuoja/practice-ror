@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Use Travis CI
+gem 'travis'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
@@ -30,8 +32,24 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
+group :test do
+
+  # Test fixtures
+  gem 'factory_girl_rails'
+
+  # Browser tests
+  gem 'capybara'
+  gem 'launchy'
+
+  # Test coverage
+  gem 'simplecov', require: false
+end
+
 group :development, :test do
   gem "better_errors"
+
+  # Unit testing (rake spec won't work if this is not in production scope; use migrate and 'rspec spec'!)
+  gem 'rspec-rails', '~> 3.0'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

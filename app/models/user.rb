@@ -14,4 +14,9 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 4 }
 
   validates :password, format: { with: /\d.*[A-Z]|[A-Z].*\d/,  message: "has to contain one number and one upper case letter" }
+  def favorite_beer
+    return nil if ratings.empty?   # palautetaan nil jos reittauksia ei ole
+    ratings.order(score: :desc).limit(1).first.beer
+  end
+
 end
