@@ -13,3 +13,4 @@ deploy:
   app: enigmatic-wildwood-2187
   on:
     repo: Rikuoja/practice-ror
+  run: "rake db:migrate"
