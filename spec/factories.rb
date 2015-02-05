@@ -24,9 +24,21 @@ FactoryGirl.define do
     year 1900
   end
 
+  factory :brewery2, class: Brewery do
+    name "Brewdog"
+    year 1995
+  end
+
   factory :beer do
     name "anonymous"
     brewery
     style "Lager"
   end
+
+  factory :beer2, class: Beer do
+    name "vehnyli"
+    association :brewery, factory: :brewery2
+    style "Weizen"
+  end
+
 end

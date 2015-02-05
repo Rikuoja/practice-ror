@@ -6,6 +6,12 @@ def create_beer_with_rating(score, user)
   beer
 end
 
+def create_wheat_beer_with_rating(score, user)
+  beer = FactoryGirl.create(:beer2)
+  FactoryGirl.create(:rating, score:score, beer:beer, user:user)
+  beer
+end
+
 def create_beers_with_ratings(*scores, user)
   scores.each do |score|
     create_beer_with_rating(score, user)
@@ -93,12 +99,16 @@ RSpec.describe User, :type => :model do
       expect(user.favorite_style).to eq(nil)
     end
 
-    it "is the only rated if only one rating" do
-      expect(user.favorite_style).to eq(style)
+    it "is the only one rated if only one rating" do
+      create_beers_with_ratings(10, 20, user)
+      expect(user.favorite_style).to eq("Lager")
     end
 
     it "is the one with highest rating if several rated" do
-      expect(user.favorite_style).to eq(best)
+      create_beers_with_ratings(10, 20, user)
+      create_wheat_beer_with_rating(22, user)
+
+      expect(user.favorite_style).to eq("Weizen")
     end
 
   end
@@ -114,12 +124,16 @@ RSpec.describe User, :type => :model do
       expect(user.favorite_brewery).to eq(nil)
     end
 
-    it "is the only rated if only one rating" do
-      expect(user.favorite_brewery).to eq(brewery)
+    it "is the only one rated if only one rating" do
+      create_beer_with_rating(10, user)
+      expect(user.favorite_brewery.name).to eq("anonymous")
     end
 
     it "is the one with highest rating if several rated" do
-      expect(user.favorite_brewery).to eq(best)
+      create_beer_with_rating(10, user)
+      create_wheat_beer_with_rating(22,user)
+
+      expect(user.favorite_brewery.name).to eq("Brewdog")
       end
 
   end

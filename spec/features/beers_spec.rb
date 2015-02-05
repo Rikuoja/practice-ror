@@ -2,9 +2,11 @@ require 'rails_helper'
 
 
 describe "Beer" do
+  let!(:user) { FactoryGirl.create :user }
 
+  #registered user is required for creating beers etc.!
   before :each do
-
+    sign_in(username:"Pekka", password:"Foobar1")
   end
 
   it "when name given, can be created" do

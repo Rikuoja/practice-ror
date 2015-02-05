@@ -3,8 +3,8 @@ require 'rails_helper'
 
 describe "Rating" do
   let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
-  let!(:beer1) { FactoryGirl.create :beer, name:"iso 3", brewery:brewery }
-  let!(:beer2) { FactoryGirl.create :beer, name:"Karhu", brewery:brewery }
+  let!(:beer1) { FactoryGirl.create :beer, name:"iso 3", brewery:brewery, style:"Lager" }
+  let!(:beer2) { FactoryGirl.create :beer, name:"Karhu", brewery:brewery, style:"Lager" }
   let!(:user) { FactoryGirl.create :user }
   let!(:user2) { FactoryGirl.create :user2 }
 
@@ -46,6 +46,22 @@ describe "Rating" do
     expect(page).to have_content 'made 2 ratings'
     expect(page).to have_content 'iso 3'
     expect(page).to have_content 'Karhu'
+
+  end
+
+  it "gives highest rated style on user page" do
+    FactoryGirl.create :rating, beer:beer1, score:12, user:user
+
+    visit user_path(user)
+    expect(page).to have_content 'Favorite style is Lager'
+
+  end
+
+  it "gives highest rated brewery on user page" do
+    FactoryGirl.create :rating, beer:beer1, score:12, user:user
+
+    visit user_path(user)
+    expect(page).to have_content 'Favorite brewery is Koff'
 
   end
 

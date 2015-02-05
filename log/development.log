@@ -1391,3 +1391,1418 @@ Processing by UsersController#index as HTML
   [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
   Rendered users/index.html.erb within layouts/application (7.5ms)
 Completed 200 OK in 281ms (Views: 237.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/beers" for 127.0.0.1 at 2015-02-05 14:07:17 +0200
+Processing by BeersController#index as HTML
+  [1m[35mBeer Load (6.4ms)[0m  SELECT "beers".* FROM "beers"
+  Rendered beers/index.html.erb within layouts/application (223.3ms)
+Completed 500 Internal Server Error in 377ms
+
+NoMethodError - undefined method `name' for nil:NilClass:
+   () Users/riku/Dropbox/Ruby2015/ratebeer2/app/views/beers/index.html.erb:18:in `block in _app_views_beers_index_html_erb___3803952930411938412_70252788844020'
+  activerecord (4.1.5) lib/active_record/relation/delegation.rb:46:in `each'
+   () Users/riku/Dropbox/Ruby2015/ratebeer2/app/views/beers/index.html.erb:14:in `_app_views_beers_index_html_erb___3803952930411938412_70252788844020'
+  actionview (4.1.5) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.1.5) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.5) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.5) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.5) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.5) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.5) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.5) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.5) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.5) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.5) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.5) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.5) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.5) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () Users/riku/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.1.5) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.5) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.5) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.5) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.5) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.5) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.5) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.5) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.5) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.5) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.5) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.5) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+   () Users/riku/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+   () Users/riku/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+   () Users/riku/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started GET "/beers" for 127.0.0.1 at 2015-02-05 14:07:19 +0200
+Processing by BeersController#index as HTML
+  [1m[36mBeer Load (5.8ms)[0m  [1mSELECT "beers".* FROM "beers"[0m
+  Rendered beers/index.html.erb within layouts/application (99.5ms)
+Completed 500 Internal Server Error in 148ms
+
+NoMethodError - undefined method `name' for nil:NilClass:
+   () Users/riku/Dropbox/Ruby2015/ratebeer2/app/views/beers/index.html.erb:18:in `block in _app_views_beers_index_html_erb___3803952930411938412_70252770416400'
+  activerecord (4.1.5) lib/active_record/relation/delegation.rb:46:in `each'
+   () Users/riku/Dropbox/Ruby2015/ratebeer2/app/views/beers/index.html.erb:14:in `_app_views_beers_index_html_erb___3803952930411938412_70252770416400'
+  actionview (4.1.5) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.1.5) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.5) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.5) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.5) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.5) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.5) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.5) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.5) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.5) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.5) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.5) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.5) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.5) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () Users/riku/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.1.5) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.5) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.5) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.5) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.5) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.5) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.5) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.5) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.5) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.5) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.5) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.5) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+   () Users/riku/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+   () Users/riku/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+   () Users/riku/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/e730dbb92842cfef/variables" for 127.0.0.1 at 2015-02-05 14:07:20 +0200
+
+
+Started GET "/beers" for 127.0.0.1 at 2015-02-05 14:07:30 +0200
+Processing by BeersController#index as HTML
+  [1m[35mBeer Load (0.3ms)[0m  SELECT "beers".* FROM "beers"
+  Rendered beers/index.html.erb within layouts/application (38.7ms)
+Completed 500 Internal Server Error in 91ms
+
+NoMethodError - undefined method `name' for nil:NilClass:
+   () Users/riku/Dropbox/Ruby2015/ratebeer2/app/views/beers/index.html.erb:18:in `block in _app_views_beers_index_html_erb___3803952930411938412_70252770416400'
+  activerecord (4.1.5) lib/active_record/relation/delegation.rb:46:in `each'
+   () Users/riku/Dropbox/Ruby2015/ratebeer2/app/views/beers/index.html.erb:14:in `_app_views_beers_index_html_erb___3803952930411938412_70252770416400'
+  actionview (4.1.5) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.1.5) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.5) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.5) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.5) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.5) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.5) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.5) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.5) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.5) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.5) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.5) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.5) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.5) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () Users/riku/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.1.5) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.5) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.5) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.5) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.5) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.5) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.5) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.5) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.5) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.5) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.5) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.5) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+   () Users/riku/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+   () Users/riku/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+   () Users/riku/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/6f3507f6978b269f/variables" for 127.0.0.1 at 2015-02-05 14:07:30 +0200
+
+
+Started POST "/__better_errors/6f3507f6978b269f/eval" for 127.0.0.1 at 2015-02-05 14:07:38 +0200
+
+
+Started POST "/__better_errors/6f3507f6978b269f/eval" for 127.0.0.1 at 2015-02-05 14:07:40 +0200
+
+
+Started POST "/__better_errors/6f3507f6978b269f/eval" for 127.0.0.1 at 2015-02-05 14:07:42 +0200
+
+
+Started POST "/__better_errors/6f3507f6978b269f/eval" for 127.0.0.1 at 2015-02-05 14:07:46 +0200
+  [1m[36mBeer Load (2.0ms)[0m  [1mSELECT "beers".* FROM "beers"[0m
+  [1m[35mBeer Load (6.0ms)[0m  SELECT  "beers".* FROM "beers"   ORDER BY "beers"."id" ASC LIMIT 1
+  [1m[36mBeer Load (1.0ms)[0m  [1mSELECT  "beers".* FROM "beers"   ORDER BY "beers"."id" ASC LIMIT 1[0m
+  [1m[35m (4.3ms)[0m  begin transaction
+  [1m[36mRating Load (1.6ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."beer_id" = ?[0m  [["beer_id", 1]]
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "beers" WHERE "beers"."id" = ?  [["id", 1]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mBeer Load (0.3ms)[0m  SELECT "beers".* FROM "beers"
+
+
+Started GET "/beers" for 127.0.0.1 at 2015-02-05 14:09:25 +0200
+Processing by BeersController#index as HTML
+  [1m[36mBeer Load (2.5ms)[0m  [1mSELECT "beers".* FROM "beers"[0m
+  Rendered beers/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 612ms (Views: 562.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/beer_clubs.css?body=1" for 127.0.0.1 at 2015-02-05 14:09:26 +0200
+
+
+Started GET "/assets/breweries.css?body=1" for 127.0.0.1 at 2015-02-05 14:09:26 +0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-02-05 14:09:26 +0200
+
+
+Started GET "/assets/memberships.css?body=1" for 127.0.0.1 at 2015-02-05 14:09:26 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-02-05 14:09:26 +0200
+
+
+Started GET "/assets/beers.css?body=1" for 127.0.0.1 at 2015-02-05 14:09:26 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-02-05 14:09:26 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 14:09:26 +0200
+
+
+Started GET "/assets/beer_clubs.js?body=1" for 127.0.0.1 at 2015-02-05 14:09:26 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 14:09:26 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 14:09:26 +0200
+
+
+Started GET "/assets/breweries.js?body=1" for 127.0.0.1 at 2015-02-05 14:09:26 +0200
+
+
+Started GET "/assets/beers.js?body=1" for 127.0.0.1 at 2015-02-05 14:09:27 +0200
+
+
+Started GET "/assets/memberships.js?body=1" for 127.0.0.1 at 2015-02-05 14:09:27 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-02-05 14:09:27 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 14:09:27 +0200
+  [1m[36mRating Load (9.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"[0m
+
+
+Started GET "/ratings" for 127.0.0.1 at 2015-02-05 15:20:54 +0200
+Processing by RatingsController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "ratings"
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"[0m
+  Rendered ratings/index.html.erb within layouts/application (34.2ms)
+Completed 200 OK in 515ms (Views: 496.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/ratings" for 127.0.0.1 at 2015-02-05 15:20:54 +0200
+Processing by RatingsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "ratings"
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT "ratings".* FROM "ratings"[0m
+  Rendered ratings/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 313ms (Views: 311.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-02-05 15:20:56 +0200
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 332ms (Views: 304.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-02-05 15:20:58 +0200
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (54.2ms)
+  Rendered users/new.html.erb within layouts/application (71.0ms)
+Completed 200 OK in 626ms (Views: 622.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-02-05 15:21:06 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9TlUYDOCcljYUCcFEAQ8CdvM1T9b/+gGfNMsot05PcU=", "user"=>{"username"=>"riku", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (2.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'riku' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 13:21:06.815114"], ["password_digest", "$2a$10$IpKg8seos7Ai/gMXXjPt5..nzAcao6aLHCzpXMdJu2IHXDU343V2q"], ["updated_at", "2015-02-05 13:21:06.815114"], ["username", "riku"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 179ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 15:21:06 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRating Exists (0.2ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mBeerClub Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mRating Load (0.2ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (95.4ms)
+Completed 200 OK in 345ms (Views: 330.8ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/beer_clubs.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/memberships.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/beers.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/breweries.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/beers.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/beer_clubs.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/memberships.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/breweries.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:07 +0200
+
+
+Started GET "/ratings" for 127.0.0.1 at 2015-02-05 15:21:09 +0200
+Processing by RatingsController#index as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "ratings"[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"
+  Rendered ratings/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 205ms (Views: 204.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/ratings/new" for 127.0.0.1 at 2015-02-05 15:21:12 +0200
+Processing by RatingsController#new as HTML
+  [1m[36mBeer Load (0.7ms)[0m  [1mSELECT "beers".* FROM "beers"[0m
+  Rendered ratings/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 200ms (Views: 189.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/beers" for 127.0.0.1 at 2015-02-05 15:21:15 +0200
+Processing by BeersController#index as HTML
+  [1m[35mBeer Load (0.4ms)[0m  SELECT "beers".* FROM "beers"
+  Rendered beers/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 213ms (Views: 207.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2015-02-05 15:21:19 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 299ms (Views: 298.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2015-02-05 15:21:28 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9TlUYDOCcljYUCcFEAQ8CdvM1T9b/+gGfNMsot05PcU=", "username"=>"riku", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."username" = 'riku' LIMIT 1[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 165ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 15:21:28 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRating Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mBeerClub Exists (0.1ms)[0m  SELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (6.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 209ms (Views: 203.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/memberships.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:28 +0200
+
+
+Started GET "/assets/breweries.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/assets/beers.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/assets/beer_clubs.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/assets/breweries.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/assets/memberships.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/assets/beer_clubs.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/assets/beers.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:29 +0200
+
+
+Started GET "/beers" for 127.0.0.1 at 2015-02-05 15:21:35 +0200
+Processing by BeersController#index as HTML
+  [1m[35mBeer Load (0.2ms)[0m  SELECT "beers".* FROM "beers"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered beers/index.html.erb within layouts/application (2.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 200ms (Views: 197.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/beers/new" for 127.0.0.1 at 2015-02-05 15:21:36 +0200
+Processing by BeersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBrewery Load (0.6ms)[0m  SELECT "breweries".* FROM "breweries"
+  Rendered beers/_form.html.erb (9.9ms)
+  Rendered beers/new.html.erb within layouts/application (17.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 195ms (Views: 185.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/breweries" for 127.0.0.1 at 2015-02-05 15:21:40 +0200
+Processing by BreweriesController#index as HTML
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "breweries"
+  [1m[36mBrewery Load (0.2ms)[0m  [1mSELECT "breweries".* FROM "breweries"[0m
+  Rendered breweries/index.html.erb within layouts/application (2.8ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 205ms (Views: 202.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/breweries/new" for 127.0.0.1 at 2015-02-05 15:21:41 +0200
+Processing by BreweriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered breweries/_form.html.erb (7.4ms)
+  Rendered breweries/new.html.erb within layouts/application (15.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 207ms (Views: 204.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/breweries" for 127.0.0.1 at 2015-02-05 15:21:47 +0200
+Processing by BreweriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9TlUYDOCcljYUCcFEAQ8CdvM1T9b/+gGfNMsot05PcU=", "brewery"=>{"name"=>"Koff", "year"=>"2015"}, "commit"=>"Create Brewery"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 13:21:47.863619"], ["name", "Koff"], ["updated_at", "2015-02-05 13:21:47.863619"], ["year", 2015]]
+  [1m[35m (2.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/breweries/1
+Completed 302 Found in 11ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/breweries/1" for 127.0.0.1 at 2015-02-05 15:21:47 +0200
+Processing by BreweriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBrewery Load (0.4ms)[0m  [1mSELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "beers"  WHERE "beers"."brewery_id" = ?  [["brewery_id", 1]]
+  [1m[36mBeer Load (0.2ms)[0m  [1mSELECT "beers".* FROM "beers"  WHERE "beers"."brewery_id" = ?[0m  [["brewery_id", 1]]
+  [1m[35mRating Exists (0.3ms)[0m  SELECT  1 AS one FROM "ratings" INNER JOIN "beers" ON "ratings"."beer_id" = "beers"."id" WHERE "beers"."brewery_id" = ? LIMIT 1  [["brewery_id", 1]]
+  Rendered breweries/show.html.erb within layouts/application (30.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 246ms (Views: 238.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/beers.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/breweries.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/memberships.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/beer_clubs.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/beer_clubs.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/beers.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/breweries.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/memberships.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:48 +0200
+
+
+Started GET "/beers" for 127.0.0.1 at 2015-02-05 15:21:50 +0200
+Processing by BeersController#index as HTML
+  [1m[35mBeer Load (0.2ms)[0m  SELECT "beers".* FROM "beers"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered beers/index.html.erb within layouts/application (1.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 246ms (Views: 244.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/beers/new" for 127.0.0.1 at 2015-02-05 15:21:51 +0200
+Processing by BeersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBrewery Load (0.2ms)[0m  SELECT "breweries".* FROM "breweries"
+  Rendered beers/_form.html.erb (5.3ms)
+  Rendered beers/new.html.erb within layouts/application (13.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 268ms (Views: 266.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/beers" for 127.0.0.1 at 2015-02-05 15:21:58 +0200
+Processing by BeersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9TlUYDOCcljYUCcFEAQ8CdvM1T9b/+gGfNMsot05PcU=", "beer"=>{"name"=>"Karhuli", "style"=>"Lager", "brewery_id"=>"1"}, "commit"=>"Create Beer"}
+  [1m[35mUser Load (4.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 1], ["created_at", "2015-02-05 13:21:58.710884"], ["name", "Karhuli"], ["style", "Lager"], ["updated_at", "2015-02-05 13:21:58.710884"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/beers
+Completed 302 Found in 18ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/beers" for 127.0.0.1 at 2015-02-05 15:21:58 +0200
+Processing by BeersController#index as HTML
+  [1m[35mBeer Load (0.4ms)[0m  SELECT "beers".* FROM "beers"
+  [1m[36mBrewery Load (0.2ms)[0m  [1mSELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered beers/index.html.erb within layouts/application (8.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 207ms (Views: 205.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/beers.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/breweries.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/memberships.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/beer_clubs.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/beer_clubs.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/memberships.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/beers.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/assets/breweries.js?body=1" for 127.0.0.1 at 2015-02-05 15:21:59 +0200
+
+
+Started GET "/ratings" for 127.0.0.1 at 2015-02-05 15:22:01 +0200
+Processing by RatingsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "ratings"
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT "ratings".* FROM "ratings"[0m
+  Rendered ratings/index.html.erb within layouts/application (2.0ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 219ms (Views: 217.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/ratings/new" for 127.0.0.1 at 2015-02-05 15:22:03 +0200
+Processing by RatingsController#new as HTML
+  [1m[36mBeer Load (0.2ms)[0m  [1mSELECT "beers".* FROM "beers"[0m
+  [1m[35mBrewery Load (0.1ms)[0m  SELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered ratings/new.html.erb within layouts/application (5.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 198ms (Views: 195.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/ratings" for 127.0.0.1 at 2015-02-05 15:22:07 +0200
+Processing by RatingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9TlUYDOCcljYUCcFEAQ8CdvM1T9b/+gGfNMsot05PcU=", "rating"=>{"beer_id"=>"2", "score"=>"11"}, "commit"=>"Create Rating"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (12.8ms)[0m  [1mINSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)[0m  [["beer_id", 2], ["created_at", "2015-02-05 13:22:07.716793"], ["score", 11], ["updated_at", "2015-02-05 13:22:07.716793"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "ratings" SET "updated_at" = ?, "user_id" = ? WHERE "ratings"."id" = 1[0m  [["updated_at", "2015-02-05 13:22:07.744358"], ["user_id", 1]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 47ms (ActiveRecord: 16.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 15:22:07 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRating Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mBeerClub Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mBeer Load (0.3ms)[0m  SELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (12.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 199ms (Views: 196.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/beers.css?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/breweries.css?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/memberships.css?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/beer_clubs.css?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/beer_clubs.js?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/breweries.js?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/memberships.js?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+
+
+Started GET "/assets/beers.js?body=1" for 127.0.0.1 at 2015-02-05 15:22:08 +0200
+  [1m[35mRating Load (53.8ms)[0m  SELECT "ratings".* FROM "ratings"
+  [1m[36mRating Load (0.6ms)[0m  [1mSELECT "ratings".* FROM "ratings"[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id"  ORDER BY Beers.style
+
+
+Started GET "/beers" for 127.0.0.1 at 2015-02-05 15:23:07 +0200
+Processing by BeersController#index as HTML
+  [1m[35mBeer Load (1.6ms)[0m  SELECT "beers".* FROM "beers"
+  [1m[36mBrewery Load (0.5ms)[0m  [1mSELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered beers/index.html.erb within layouts/application (59.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 372ms (Views: 359.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/beers/new" for 127.0.0.1 at 2015-02-05 15:23:10 +0200
+Processing by BeersController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mBrewery Load (0.3ms)[0m  [1mSELECT "breweries".* FROM "breweries"[0m
+  Rendered beers/_form.html.erb (9.5ms)
+  Rendered beers/new.html.erb within layouts/application (17.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 291ms (Views: 287.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/beers" for 127.0.0.1 at 2015-02-05 15:23:14 +0200
+Processing by BeersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9TlUYDOCcljYUCcFEAQ8CdvM1T9b/+gGfNMsot05PcU=", "beer"=>{"name"=>"Vehnyli", "style"=>"Weizen", "brewery_id"=>"1"}, "commit"=>"Create Beer"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 1], ["created_at", "2015-02-05 13:23:14.755529"], ["name", "Vehnyli"], ["style", "Weizen"], ["updated_at", "2015-02-05 13:23:14.755529"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/beers
+Completed 302 Found in 13ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/beers" for 127.0.0.1 at 2015-02-05 15:23:14 +0200
+Processing by BeersController#index as HTML
+  [1m[36mBeer Load (0.4ms)[0m  [1mSELECT "beers".* FROM "beers"[0m
+  [1m[35mBrewery Load (0.2ms)[0m  SELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered beers/index.html.erb within layouts/application (17.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 257ms (Views: 255.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/beers.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/breweries.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/memberships.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/beers.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/beer_clubs.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/breweries.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/memberships.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/beer_clubs.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:15 +0200
+
+
+Started GET "/ratings" for 127.0.0.1 at 2015-02-05 15:23:17 +0200
+Processing by RatingsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "ratings"
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"[0m
+  [1m[35mBeer Load (0.1ms)[0m  SELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered ratings/index.html.erb within layouts/application (4.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 180ms (Views: 178.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/ratings/new" for 127.0.0.1 at 2015-02-05 15:23:20 +0200
+Processing by RatingsController#new as HTML
+  [1m[36mBeer Load (0.2ms)[0m  [1mSELECT "beers".* FROM "beers"[0m
+  [1m[35mBrewery Load (0.1ms)[0m  SELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered ratings/new.html.erb within layouts/application (5.3ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 171ms (Views: 169.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/ratings" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+Processing by RatingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9TlUYDOCcljYUCcFEAQ8CdvM1T9b/+gGfNMsot05PcU=", "rating"=>{"beer_id"=>"2", "score"=>"8"}, "commit"=>"Create Rating"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 2], ["created_at", "2015-02-05 13:23:24.406864"], ["score", 8], ["updated_at", "2015-02-05 13:23:24.406864"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "ratings" SET "updated_at" = ?, "user_id" = ? WHERE "ratings"."id" = 2  [["updated_at", "2015-02-05 13:23:24.413304"], ["user_id", 1]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 15ms (ActiveRecord: 7.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRating Exists (0.2ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mBeerClub Exists (0.1ms)[0m  SELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mBeer Load (0.1ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (12.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 205ms (Views: 202.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/beers.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/breweries.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/memberships.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/beer_clubs.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/memberships.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/breweries.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/beers.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/beer_clubs.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:24 +0200
+
+
+Started GET "/ratings" for 127.0.0.1 at 2015-02-05 15:23:29 +0200
+Processing by RatingsController#index as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "ratings"[0m
+  [1m[35mRating Load (3.5ms)[0m  SELECT "ratings".* FROM "ratings"
+  [1m[36mBeer Load (0.1ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered ratings/index.html.erb within layouts/application (8.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 185ms (Views: 179.8ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/ratings/new" for 127.0.0.1 at 2015-02-05 15:23:30 +0200
+Processing by RatingsController#new as HTML
+  [1m[35mBeer Load (0.2ms)[0m  SELECT "beers".* FROM "beers"
+  [1m[36mBrewery Load (0.1ms)[0m  [1mSELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered ratings/new.html.erb within layouts/application (4.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 180ms (Views: 178.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/ratings" for 127.0.0.1 at 2015-02-05 15:23:35 +0200
+Processing by RatingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9TlUYDOCcljYUCcFEAQ8CdvM1T9b/+gGfNMsot05PcU=", "rating"=>{"beer_id"=>"3", "score"=>"13"}, "commit"=>"Create Rating"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)[0m  [["beer_id", 3], ["created_at", "2015-02-05 13:23:35.557045"], ["score", 13], ["updated_at", "2015-02-05 13:23:35.557045"]]
+  [1m[35m (2.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "ratings" SET "updated_at" = ?, "user_id" = ? WHERE "ratings"."id" = 3[0m  [["updated_at", "2015-02-05 13:23:35.566000"], ["user_id", 1]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 17ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 15:23:35 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRating Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mBeerClub Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mBeer Load (0.1ms)[0m  SELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBeer Load (0.1ms)[0m  SELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (11.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 183ms (Views: 180.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/beer_clubs.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:35 +0200
+
+
+Started GET "/assets/beers.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:35 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:35 +0200
+
+
+Started GET "/assets/breweries.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:35 +0200
+
+
+Started GET "/assets/memberships.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:35 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:35 +0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:35 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:35 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:35 +0200
+
+
+Started GET "/assets/beer_clubs.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:35 +0200
+
+
+Started GET "/assets/beers.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:36 +0200
+
+
+Started GET "/assets/breweries.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:36 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:36 +0200
+
+
+Started GET "/assets/memberships.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:36 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:36 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:36 +0200
+
+
+Started GET "/ratings" for 127.0.0.1 at 2015-02-05 15:23:40 +0200
+Processing by RatingsController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "ratings"
+  [1m[36mRating Load (0.4ms)[0m  [1mSELECT "ratings".* FROM "ratings"[0m
+  [1m[35mBeer Load (0.3ms)[0m  SELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBeer Load (0.1ms)[0m  SELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered ratings/index.html.erb within layouts/application (9.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 215ms (Views: 213.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/ratings/new" for 127.0.0.1 at 2015-02-05 15:23:42 +0200
+Processing by RatingsController#new as HTML
+  [1m[36mBeer Load (0.2ms)[0m  [1mSELECT "beers".* FROM "beers"[0m
+  [1m[35mBrewery Load (0.1ms)[0m  SELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered ratings/new.html.erb within layouts/application (5.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 183ms (Views: 181.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/ratings" for 127.0.0.1 at 2015-02-05 15:23:46 +0200
+Processing by RatingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9TlUYDOCcljYUCcFEAQ8CdvM1T9b/+gGfNMsot05PcU=", "rating"=>{"beer_id"=>"2", "score"=>"13"}, "commit"=>"Create Rating"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 2], ["created_at", "2015-02-05 13:23:46.892957"], ["score", 13], ["updated_at", "2015-02-05 13:23:46.892957"]]
+  [1m[36m (4.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "ratings" SET "updated_at" = ?, "user_id" = ? WHERE "ratings"."id" = 4  [["updated_at", "2015-02-05 13:23:46.902990"], ["user_id", 1]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 16ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 15:23:46 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mRating Load (1.0ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mBeerClub Exists (0.1ms)[0m  SELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mBeer Load (0.1ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mBeer Load (0.1ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (16.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 229ms (Views: 224.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/beers.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/breweries.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/memberships.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/beer_clubs.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/beer_clubs.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/memberships.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/breweries.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+
+
+Started GET "/assets/beers.js?body=1" for 127.0.0.1 at 2015-02-05 15:23:47 +0200
+  [1m[36mRating Load (2.2ms)[0m  [1mSELECT "ratings".* FROM "ratings"[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT "ratings".* FROM "ratings"
+  [1m[36mSQL (9.9ms)[0m  [1mSELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id"  ORDER BY Beers.style[0m
+  [1m[36mRating Load (9.0ms)[0m  [1mSELECT "ratings".* FROM "ratings"[0m
+  [1m[35mRating Load (1.7ms)[0m  SELECT "ratings".* FROM "ratings"
+  [1m[36mSQL (1.1ms)[0m  [1mSELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id"  ORDER BY Beers.style[0m
+  [1m[35mSQL (1.2ms)[0m  SELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id"  ORDER BY Beers.style
+  [1m[36mSQL (2.1ms)[0m  [1mSELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id"  ORDER BY Beers.style[0m
+  [1m[35mSQL (2.1ms)[0m  SELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id"  ORDER BY Beers.style
+  [1m[36mSQL (0.9ms)[0m  [1mSELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id"  ORDER BY Beers.style[0m
+  [1m[35mBeer Load (2.4ms)[0m  SELECT "beers".* FROM "beers"
+  [1m[36mBeer Load (0.5ms)[0m  [1mSELECT  "beers".* FROM "beers"   ORDER BY "beers"."id" ASC LIMIT 1[0m
+  [1m[35mBrewery Load (5.6ms)[0m  SELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1  [["id", 1]]
