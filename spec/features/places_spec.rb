@@ -1,9 +1,15 @@
-require 'rspec'
+require 'rails_helper'
 
-describe 'My behaviour' do
+describe "Places" do
+  it "if one is returned by the API, it is shown at the page" do
+    allow(BeermappingApi).to receive(:places_in).with("kumpula").and_return(
+                                 [ Place.new( name:"Oljenkorsi", id: 1 ) ]
+                             )
 
-  it 'should do something' do
+    visit places_path
+    fill_in('city', with: 'kumpula')
+    click_button "Search"
 
-    true.should == false
+    expect(page).to have_content "Oljenkorsi"
   end
 end
