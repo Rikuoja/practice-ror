@@ -37161,3 +37161,1176 @@ Binary data inserted for `string` type on column `password_digest`
   [1m[36mBrewery Load (0.1ms)[0m  [1mSELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1[0m  [["id", 1]]
   [1m[35mBrewery Load (0.1ms)[0m  SELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1  [["id", 2]]
   [1m[36m (1.5ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:04.112969"], ["password_digest", "$2a$04$lTkpbhpocXVyySQg35G3LeFvhC6JabrR5dHHZFjlBXAdL5oBzaNVi"], ["updated_at", "2015-02-05 18:56:04.112969"], ["username", "Pekka"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/signin" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 95ms (Views: 75.0ms | ActiveRecord: 0.0ms)
+Started POST "/session" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "username"=>"Pekka", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 12ms (ActiveRecord: 0.2ms)
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRating Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mBeerClub Exists (0.6ms)[0m  SELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (81.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 103ms (Views: 97.1ms | ActiveRecord: 2.7ms)
+Started GET "/beers/new" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by BeersController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mBrewery Load (0.5ms)[0m  [1mSELECT "breweries".* FROM "breweries"[0m
+  Rendered beers/_form.html.erb (39.4ms)
+  Rendered beers/new.html.erb within layouts/application (50.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 70ms (Views: 65.5ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "beers"[0m
+Started POST "/beers" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by BeersController#create as HTML
+  Parameters: {"utf8"=>"✓", "beer"=>{"name"=>"Olut", "style"=>"Weizen"}, "commit"=>"Create Beer"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "beers" ("created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:04.513266"], ["name", "Olut"], ["style", "Weizen"], ["updated_at", "2015-02-05 18:56:04.513266"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/beers
+Completed 302 Found in 8ms (ActiveRecord: 2.5ms)
+Started GET "/beers" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by BeersController#index as HTML
+  [1m[35mBeer Load (0.2ms)[0m  SELECT "beers".* FROM "beers"
+  Rendered beers/index.html.erb within layouts/application (26.3ms)
+Completed 500 Internal Server Error in 34ms
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/beers/index.html.erb:18:in `block in _app_views_beers_index_html_erb__954353026955419185_70366784085660'
+  activerecord (4.1.5) lib/active_record/relation/delegation.rb:46:in `each'
+  app/views/beers/index.html.erb:14:in `_app_views_beers_index_html_erb__954353026955419185_70366784085660'
+  actionview (4.1.5) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.1.5) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.5) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.5) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.5) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.5) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.5) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.5) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.5) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.5) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.5) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.5) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.5) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.5) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.5) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/riku/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.1.5) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.5) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.5) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.5) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.5) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.5) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.5) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.5) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.5) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.5) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.5) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.5) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.5) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.5) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.5) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.5) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.5) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/builder.rb:138:in `call'
+  rack (1.5.2) lib/rack/urlmap.rb:65:in `block in call'
+  rack (1.5.2) lib/rack/urlmap.rb:50:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+  /Users/riku/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/forwardable.rb:183:in `get'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:60:in `process'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:38:in `block in process_and_follow_redirects'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:37:in `process_and_follow_redirects'
+  capybara (2.4.4) lib/capybara/rack_test/browser.rb:26:in `submit'
+  capybara (2.4.4) lib/capybara/rack_test/form.rb:75:in `submit'
+  capybara (2.4.4) lib/capybara/rack_test/node.rb:60:in `click'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `block in click'
+  capybara (2.4.4) lib/capybara/node/base.rb:84:in `synchronize'
+  capybara (2.4.4) lib/capybara/node/element.rb:133:in `click'
+  capybara (2.4.4) lib/capybara/node/actions.rb:37:in `click_button'
+  capybara (2.4.4) lib/capybara/session.rb:676:in `block (2 levels) in <class:Session>'
+  capybara (2.4.4) lib/capybara/dsl.rb:51:in `block (2 levels) in <module:DSL>'
+  spec/features/beers_spec.rb:17:in `block (3 levels) in <top (required)>'
+  rspec-expectations (3.1.2) lib/rspec/matchers/built_in/change.rb:310:in `perform_change'
+  rspec-expectations (3.1.2) lib/rspec/matchers/built_in/change.rb:165:in `matches?'
+  rspec-expectations (3.1.2) lib/rspec/expectations/handler.rb:48:in `handle_matcher'
+  rspec-expectations (3.1.2) lib/rspec/expectations/expectation_target.rb:54:in `to'
+  rspec-expectations (3.1.2) lib/rspec/expectations/expectation_target.rb:87:in `to'
+  spec/features/beers_spec.rb:16:in `block (2 levels) in <top (required)>'
+  rspec-core (3.1.7) lib/rspec/core/example.rb:152:in `block in run'
+  rspec-core (3.1.7) lib/rspec/core/example.rb:222:in `call'
+  rspec-rails (3.1.0) lib/rspec/rails/adapters.rb:72:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.1.7) lib/rspec/core/example.rb:322:in `instance_exec'
+  rspec-core (3.1.7) lib/rspec/core/hooks.rb:380:in `execute_with'
+  rspec-core (3.1.7) lib/rspec/core/hooks.rb:446:in `block (2 levels) in run'
+  rspec-core (3.1.7) lib/rspec/core/example.rb:222:in `call'
+  rspec-core (3.1.7) lib/rspec/core/hooks.rb:447:in `run'
+  rspec-core (3.1.7) lib/rspec/core/hooks.rb:500:in `run'
+  rspec-core (3.1.7) lib/rspec/core/example.rb:331:in `with_around_example_hooks'
+  rspec-core (3.1.7) lib/rspec/core/example.rb:149:in `run'
+  rspec-core (3.1.7) lib/rspec/core/example_group.rb:490:in `block in run_examples'
+  rspec-core (3.1.7) lib/rspec/core/example_group.rb:486:in `run_examples'
+  rspec-core (3.1.7) lib/rspec/core/example_group.rb:453:in `run'
+  rspec-core (3.1.7) lib/rspec/core/runner.rb:111:in `block (2 levels) in run_specs'
+  rspec-core (3.1.7) lib/rspec/core/runner.rb:111:in `block in run_specs'
+  rspec-core (3.1.7) lib/rspec/core/reporter.rb:53:in `report'
+  rspec-core (3.1.7) lib/rspec/core/runner.rb:107:in `run_specs'
+  rspec-core (3.1.7) lib/rspec/core/runner.rb:85:in `run'
+  rspec-core (3.1.7) lib/rspec/core/runner.rb:69:in `run'
+  rspec-core (3.1.7) lib/rspec/core/runner.rb:37:in `invoke'
+  rspec-core (3.1.7) exe/rspec:4:in `<main>'
+
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "beers"[0m
+  [1m[35m (1.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:04.594439"], ["password_digest", "$2a$04$t35m8UMPk1SeUbiUpVfj2.kE3WQe4tc6wmZXidkVm.ttiy8OxzlAi"], ["updated_at", "2015-02-05 18:56:04.594439"], ["username", "Pekka"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/signin" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started POST "/session" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "username"=>"Pekka", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mBeerClub Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mRating Load (0.0ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (4.8ms)
+  [1m[35mCACHE (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 1.2ms)
+Started GET "/beers/new" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by BeersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBrewery Load (0.2ms)[0m  SELECT "breweries".* FROM "breweries"
+  Rendered beers/_form.html.erb (4.8ms)
+  Rendered beers/new.html.erb within layouts/application (5.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.4ms)
+Started POST "/beers" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by BeersController#create as HTML
+  Parameters: {"utf8"=>"✓", "beer"=>{"name"=>"", "style"=>"Weizen"}, "commit"=>"Create Beer"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36mBrewery Load (0.2ms)[0m  [1mSELECT "breweries".* FROM "breweries"[0m
+  Rendered beers/_form.html.erb (5.5ms)
+  Rendered beers/new.html.erb within layouts/application (6.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 16ms (Views: 10.0ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "beers"[0m
+  [1m[35m (4.9ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Started GET "/breweries" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by BreweriesController#index as HTML
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "breweries"
+  [1m[36mBrewery Load (0.1ms)[0m  [1mSELECT "breweries".* FROM "breweries"[0m
+  Rendered breweries/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (6.9ms)[0m  [1mINSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:04.750160"], ["name", "Koff"], ["updated_at", "2015-02-05 18:56:04.750160"], ["year", 1897]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:04.759968"], ["name", "Karjala"], ["updated_at", "2015-02-05 18:56:04.759968"], ["year", 1898]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:04.763616"], ["name", "Schlenkerla"], ["updated_at", "2015-02-05 18:56:04.763616"], ["year", 1899]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/breweries" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by BreweriesController#index as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "breweries"[0m
+  [1m[35mBrewery Load (0.1ms)[0m  SELECT "breweries".* FROM "breweries"
+  Rendered breweries/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.3ms)
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:04.789376"], ["name", "Koff"], ["updated_at", "2015-02-05 18:56:04.789376"], ["year", 1897]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:04.792063"], ["name", "Karjala"], ["updated_at", "2015-02-05 18:56:04.792063"], ["year", 1898]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:04.795296"], ["name", "Schlenkerla"], ["updated_at", "2015-02-05 18:56:04.795296"], ["year", 1899]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/breweries" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by BreweriesController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "breweries"
+  [1m[36mBrewery Load (0.1ms)[0m  [1mSELECT "breweries".* FROM "breweries"[0m
+  Rendered breweries/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.3ms)
+Started GET "/breweries/1" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by BreweriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBrewery Load (0.2ms)[0m  SELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "beers"  WHERE "beers"."brewery_id" = ?[0m  [["brewery_id", 1]]
+  [1m[35mBeer Load (0.1ms)[0m  SELECT "beers".* FROM "beers"  WHERE "beers"."brewery_id" = ?  [["brewery_id", 1]]
+  [1m[36mRating Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ratings" INNER JOIN "beers" ON "ratings"."beer_id" = "beers"."id" WHERE "beers"."brewery_id" = ? LIMIT 1[0m  [["brewery_id", 1]]
+  Rendered breweries/show.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.9ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:04.847541"], ["name", "Koff"], ["updated_at", "2015-02-05 18:56:04.847541"], ["year", 1900]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (6.8ms)[0m  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:04.851109"], ["name", "iso 3"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:04.851109"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:04.862877"], ["name", "Karhu"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:04.862877"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:04.868562"], ["password_digest", "$2a$04$p/28jVplsx8DOeFFkv3nP.Kqrt.fNoON.88XRMF9vAqsP4E6Tlw6S"], ["updated_at", "2015-02-05 18:56:04.868562"], ["username", "Pekka"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Riku' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:04.875570"], ["password_digest", "$2a$04$KBqs9Njd3tXlT8QLN7bzj.gg8PvJMN8nsXKe39nj4W737DhvGy5Gu"], ["updated_at", "2015-02-05 18:56:04.875570"], ["username", "Riku"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/signin" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+Started POST "/session" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "username"=>"Pekka", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mBeerClub Exists (0.1ms)[0m  SELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (5.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 0.5ms)
+Started GET "/ratings/new" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by RatingsController#new as HTML
+  [1m[35mBeer Load (0.2ms)[0m  SELECT "beers".* FROM "beers"
+  [1m[36mBrewery Load (0.1ms)[0m  [1mSELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered ratings/new.html.erb within layouts/application (15.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 33ms (Views: 31.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "ratings"
+Started POST "/ratings" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by RatingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "rating"=>{"beer_id"=>"1", "score"=>"15"}, "commit"=>"Create Rating"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at") VALUES (?, ?, ?, ?)  [["beer_id", 1], ["created_at", "2015-02-05 18:56:04.987069"], ["score", 15], ["updated_at", "2015-02-05 18:56:04.987069"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "ratings" SET "updated_at" = ?, "user_id" = ? WHERE "ratings"."id" = 1  [["updated_at", "2015-02-05 18:56:04.993805"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 13ms (ActiveRecord: 1.0ms)
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:04 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mSQL (0.3ms)[0m  SELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id" WHERE "ratings"."user_id" = ?  ORDER BY Beers.style  [["user_id", 1]]
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id" WHERE "ratings"."user_id" = ?  ORDER BY Beers.brewery_id[0m  [["user_id", 1]]
+  [1m[35mBrewery Load (0.1ms)[0m  SELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mBeerClub Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mBeer Load (0.2ms)[0m  SELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (24.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 31ms (Views: 26.8ms | ActiveRecord: 2.0ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."beer_id" = ?  [["beer_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."beer_id" = ?[0m  [["beer_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."beer_id" = ?  [["beer_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.043023"], ["name", "Koff"], ["updated_at", "2015-02-05 18:56:05.043023"], ["year", 1900]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:05.046470"], ["name", "iso 3"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:05.046470"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:05.049268"], ["name", "Karhu"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:05.049268"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.056848"], ["password_digest", "$2a$04$yw.3j/yYkRc3Etr1fqHOAegb8trKb5pcdT2ASBEpKG.drWrBJwoE2"], ["updated_at", "2015-02-05 18:56:05.056848"], ["username", "Pekka"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Riku' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.063362"], ["password_digest", "$2a$04$QNobm76GeG1Tz3zwF9xSTOD/EgJdZMw4rwWeSPyOZuMow/O2yMPx2"], ["updated_at", "2015-02-05 18:56:05.063362"], ["username", "Riku"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/signin" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+Started POST "/session" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "username"=>"Pekka", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 9ms (ActiveRecord: 0.3ms)
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mBeerClub Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mRating Load (0.2ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (6.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 14ms (Views: 11.4ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["beer_id", 1], ["created_at", "2015-02-05 18:56:05.113227"], ["score", 12], ["updated_at", "2015-02-05 18:56:05.113227"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["beer_id", 2], ["created_at", "2015-02-05 18:56:05.116315"], ["score", 15], ["updated_at", "2015-02-05 18:56:05.116315"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/ratings" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by RatingsController#index as HTML
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "ratings"[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"
+  [1m[36mBeer Load (0.1ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mBeer Load (0.1ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered ratings/index.html.erb within layouts/application (6.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:05.151717"], ["name", "Koff"], ["updated_at", "2015-02-05 18:56:05.151717"], ["year", 1900]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:05.155376"], ["name", "iso 3"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:05.155376"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:05.158523"], ["name", "Karhu"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:05.158523"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:05.163864"], ["password_digest", "$2a$04$aACNhGlvascx.2uFpZlSneVn.frQ2T2zTCy9OqaBqcqX9ffYkVn/."], ["updated_at", "2015-02-05 18:56:05.163864"], ["username", "Pekka"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Riku' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:05.169052"], ["password_digest", "$2a$04$wOZppBnDTOcu8mA.FNK0m.2vSB6hY0yw6iwm2a5HmZaSn0Lfvjwn."], ["updated_at", "2015-02-05 18:56:05.169052"], ["username", "Riku"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/signin" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started POST "/session" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "username"=>"Pekka", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 7ms (ActiveRecord: 2.6ms)
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mBeerClub Exists (0.1ms)[0m  SELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (8.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 16ms (Views: 11.9ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["beer_id", 1], ["created_at", "2015-02-05 18:56:05.216165"], ["score", 12], ["updated_at", "2015-02-05 18:56:05.216165"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["beer_id", 2], ["created_at", "2015-02-05 18:56:05.219685"], ["score", 15], ["updated_at", "2015-02-05 18:56:05.219685"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["beer_id", 1], ["created_at", "2015-02-05 18:56:05.223852"], ["score", 13], ["updated_at", "2015-02-05 18:56:05.223852"], ["user_id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  SELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id" WHERE "ratings"."user_id" = ?  ORDER BY Beers.style  [["user_id", 1]]
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id" WHERE "ratings"."user_id" = ?  ORDER BY Beers.brewery_id[0m  [["user_id", 1]]
+  [1m[35mBrewery Load (0.1ms)[0m  SELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBeerClub Exists (0.1ms)[0m  SELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mBeer Load (0.1ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mBeer Load (0.1ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (19.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 26ms (Views: 22.7ms | ActiveRecord: 1.2ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.266818"], ["name", "Koff"], ["updated_at", "2015-02-05 18:56:05.266818"], ["year", 1900]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:05.270868"], ["name", "iso 3"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:05.270868"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:05.274654"], ["name", "Karhu"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:05.274654"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.279818"], ["password_digest", "$2a$04$M1qP1t09d4iObrI5iy8KA.lpghcBK5DVRYQDWx60bIsoXAep/7YyO"], ["updated_at", "2015-02-05 18:56:05.279818"], ["username", "Pekka"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Riku' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.285058"], ["password_digest", "$2a$04$rOvfheEN9yYh/e3P3CyBJu5yP5KA6esr0BOjNwIAgFBuaEEniiFIK"], ["updated_at", "2015-02-05 18:56:05.285058"], ["username", "Riku"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/signin" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started POST "/session" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "username"=>"Pekka", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 15ms (ActiveRecord: 0.2ms)
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mBeerClub Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (4.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["beer_id", 1], ["created_at", "2015-02-05 18:56:05.333703"], ["score", 12], ["updated_at", "2015-02-05 18:56:05.333703"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id" WHERE "ratings"."user_id" = ?  ORDER BY Beers.style[0m  [["user_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  SELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id" WHERE "ratings"."user_id" = ?  ORDER BY Beers.brewery_id  [["user_id", 1]]
+  [1m[36mBrewery Load (0.1ms)[0m  [1mSELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBeerClub Exists (0.1ms)[0m  SELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mBeer Load (0.1ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (16.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 1.2ms)
+  [1m[36m (2.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.369223"], ["name", "Koff"], ["updated_at", "2015-02-05 18:56:05.369223"], ["year", 1900]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:05.372563"], ["name", "iso 3"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:05.372563"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:05.375745"], ["name", "Karhu"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:05.375745"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.381604"], ["password_digest", "$2a$04$IJw6Gviu9/Z7c4XNvB/dnukY34K1oKTCHxZQ94D3eyXQZp2vSLi.G"], ["updated_at", "2015-02-05 18:56:05.381604"], ["username", "Pekka"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Riku' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.389185"], ["password_digest", "$2a$04$gz9BSR1SeVE0lgoUGXxgW.OPwg3FSLXz/rihYyMdu7mwXiLwKGsza"], ["updated_at", "2015-02-05 18:56:05.389185"], ["username", "Riku"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/signin" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started POST "/session" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "username"=>"Pekka", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mBeerClub Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (8.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["beer_id", 1], ["created_at", "2015-02-05 18:56:05.460659"], ["score", 12], ["updated_at", "2015-02-05 18:56:05.460659"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id" WHERE "ratings"."user_id" = ?  ORDER BY Beers.style[0m  [["user_id", 1]]
+  [1m[35mSQL (0.2ms)[0m  SELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id" WHERE "ratings"."user_id" = ?  ORDER BY Beers.brewery_id  [["user_id", 1]]
+  [1m[36mBrewery Load (0.1ms)[0m  [1mSELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBeerClub Exists (0.1ms)[0m  SELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mBeer Load (0.1ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (15.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 23ms (Views: 19.8ms | ActiveRecord: 1.0ms)
+  [1m[36m (2.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.499099"], ["name", "Koff"], ["updated_at", "2015-02-05 18:56:05.499099"], ["year", 1900]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:05.503199"], ["name", "iso 3"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:05.503199"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:05.508313"], ["name", "Karhu"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:05.508313"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.515046"], ["password_digest", "$2a$04$1GD4UYPSukvfWhSaOwGCGO4ygnDCziD3F2SK/pI6b8W3AD5iFVgfi"], ["updated_at", "2015-02-05 18:56:05.515046"], ["username", "Pekka"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Riku' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.521318"], ["password_digest", "$2a$04$uuBneT0PZB9k.Gl0jiW3guvJM1m6/n1OoM5F1nFK5Eck07BPGT/M6"], ["updated_at", "2015-02-05 18:56:05.521318"], ["username", "Riku"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/signin" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started POST "/session" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "username"=>"Pekka", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 10ms (ActiveRecord: 0.2ms)
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mBeerClub Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mRating Load (0.0ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (5.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["beer_id", 1], ["created_at", "2015-02-05 18:56:05.569598"], ["score", 12], ["updated_at", "2015-02-05 18:56:05.569598"], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id" WHERE "ratings"."user_id" = ?  ORDER BY Beers.style[0m  [["user_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  SELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id" WHERE "ratings"."user_id" = ?  ORDER BY Beers.brewery_id  [["user_id", 1]]
+  [1m[36mBrewery Load (0.1ms)[0m  [1mSELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBeerClub Exists (0.1ms)[0m  SELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mBeer Load (0.2ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (16.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 22ms (Views: 19.6ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "ratings"[0m
+Started DELETE "/ratings/1" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by RatingsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRating Load (0.2ms)[0m  SELECT  "ratings".* FROM "ratings"  WHERE "ratings"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "ratings" WHERE "ratings"."id" = 1[0m
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mBeerClub Exists (0.1ms)[0m  SELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (6.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"
+  [1m[36m (2.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:05.639843"], ["password_digest", "$2a$04$xk8l5dMvm1to0GfGi7/Q6ekcB6sVs8YZoN9sYJIPTwcfW3ARxezGa"], ["updated_at", "2015-02-05 18:56:05.639843"], ["username", "Pekka"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/signin" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+Started POST "/session" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "username"=>"Pekka", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms)
+Started GET "/users/1" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mBeerClub Exists (0.1ms)[0m  SELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (5.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (1.7ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.696371"], ["password_digest", "$2a$04$1Gx2sHkuv6KN4i3yT.JF8OlE2JhgeSXKFDdXiCTaJwDZvfukHYfge"], ["updated_at", "2015-02-05 18:56:05.696371"], ["username", "Pekka"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/signin" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+Started POST "/session" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "username"=>"Pekka", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Redirected to http://www.example.com/signin
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+Started GET "/signin" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:05.740380"], ["password_digest", "$2a$04$skzMUyPfBENNXqT/1lgC1eHPPGY5Sa8VFweA9xFy3I0Ddki0Uz/UC"], ["updated_at", "2015-02-05 18:56:05.740380"], ["username", "Pekka"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/signup" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (12.0ms)
+  Rendered users/new.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 32ms (Views: 31.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Started POST "/users" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"username"=>"Brian", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Brian' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.799977"], ["password_digest", "$2a$04$O0hdgKibT3UZtmfc1gMbMeQOkBtUlIawooAKNV6TS802YfAjFlNiq"], ["updated_at", "2015-02-05 18:56:05.799977"], ["username", "Brian"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/2
+Completed 302 Found in 13ms (ActiveRecord: 0.9ms)
+Started GET "/users/2" for 127.0.0.1 at 2015-02-05 20:56:05 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mBeerClub Exists (0.1ms)[0m  SELECT  1 AS one FROM "beer_clubs" INNER JOIN "memberships" ON "beer_clubs"."id" = "memberships"."beer_club_id" WHERE "memberships"."user_id" = ? LIMIT 1  [["user_id", 2]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered users/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "beers"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "beers"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "beers" ("created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.846276"], ["name", "Testiolut"], ["style", "Weizen"], ["updated_at", "2015-02-05 18:56:05.846276"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "beers"
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.852516"], ["name", "Schlenkerla"], ["updated_at", "2015-02-05 18:56:05.852516"], ["year", 1674]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36mUser Exists (7.7ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:05.921654"], ["password_digest", "$2a$04$ERgxFkZnNMocKkG5v1dO4eSPYJyoB5/ScPAmrgR6UF8KJDe3h7GXe"], ["updated_at", "2015-02-05 18:56:05.921654"], ["username", "Pekka"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE ("users"."username" = 'Pekka' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:05.949379"], ["password_digest", "$2a$04$KUEP95flAw2nAvJlsw0tpegx/ILxQWf8Md1eb7OPBr6rbRoXCDT8i"], ["updated_at", "2015-02-05 18:56:05.949379"], ["username", "Pekka"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "ratings" ("created_at", "score", "updated_at") VALUES (?, ?, ?)  [["created_at", "2015-02-05 18:56:05.960779"], ["score", 10], ["updated_at", "2015-02-05 18:56:05.960779"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "ratings" SET "updated_at" = ?, "user_id" = ? WHERE "ratings"."id" = 1[0m  [["updated_at", "2015-02-05 18:56:05.964113"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "ratings" ("created_at", "score", "updated_at") VALUES (?, ?, ?)  [["created_at", "2015-02-05 18:56:05.966425"], ["score", 20], ["updated_at", "2015-02-05 18:56:05.966425"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "ratings" SET "updated_at" = ?, "user_id" = ? WHERE "ratings"."id" = 2[0m  [["updated_at", "2015-02-05 18:56:05.968248"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "ratings"  WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.978936"], ["password_digest", "$2a$04$RCmWXlxT0tt20VvWi.9MKexDZUKPfFufBlijurmKFv8UqUUYei/6S"], ["updated_at", "2015-02-05 18:56:05.978936"], ["username", "Pekka"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:05.989394"], ["password_digest", "$2a$04$G4dxOLc0/S9H7a782ylje.Y2utnikpgTzEHFzoFVt7MhRsFnRLLwW"], ["updated_at", "2015-02-05 18:56:05.989394"], ["username", "Pekka"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:06.029041"], ["password_digest", "$2a$04$/CgLvE34NduuDTmg1yFdZe2owo6UWmqB22ubwOmzDsq3Ft25.8bpy"], ["updated_at", "2015-02-05 18:56:06.029041"], ["username", "Pekka"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:06.032258"], ["name", "anonymous"], ["updated_at", "2015-02-05 18:56:06.032258"], ["year", 1900]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:06.034755"], ["name", "anonymous"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:06.034755"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["beer_id", 1], ["created_at", "2015-02-05 18:56:06.041547"], ["score", 10], ["updated_at", "2015-02-05 18:56:06.041547"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  ORDER BY "ratings"."score" DESC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mBeer Load (0.1ms)[0m  SELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:06.051588"], ["password_digest", "$2a$04$jlSYGqU6GZDi0nyB/PNefeZSPHgxSvb8athreLxmzqOrA0iG8NVkm"], ["updated_at", "2015-02-05 18:56:06.051588"], ["username", "Pekka"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:06.054334"], ["name", "anonymous"], ["updated_at", "2015-02-05 18:56:06.054334"], ["year", 1900]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:06.057072"], ["name", "anonymous"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:06.057072"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["beer_id", 1], ["created_at", "2015-02-05 18:56:06.060348"], ["score", 10], ["updated_at", "2015-02-05 18:56:06.060348"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:06.063305"], ["name", "anonymous"], ["updated_at", "2015-02-05 18:56:06.063305"], ["year", 1900]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 2], ["created_at", "2015-02-05 18:56:06.065652"], ["name", "anonymous"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:06.065652"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["beer_id", 2], ["created_at", "2015-02-05 18:56:06.069126"], ["score", 20], ["updated_at", "2015-02-05 18:56:06.069126"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:06.073187"], ["name", "anonymous"], ["updated_at", "2015-02-05 18:56:06.073187"], ["year", 1900]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 3], ["created_at", "2015-02-05 18:56:06.075331"], ["name", "anonymous"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:06.075331"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["beer_id", 3], ["created_at", "2015-02-05 18:56:06.078859"], ["score", 15], ["updated_at", "2015-02-05 18:56:06.078859"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:06.082838"], ["name", "anonymous"], ["updated_at", "2015-02-05 18:56:06.082838"], ["year", 1900]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 4], ["created_at", "2015-02-05 18:56:06.084876"], ["name", "anonymous"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:06.084876"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["beer_id", 4], ["created_at", "2015-02-05 18:56:06.087350"], ["score", 7], ["updated_at", "2015-02-05 18:56:06.087350"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:06.092760"], ["name", "anonymous"], ["updated_at", "2015-02-05 18:56:06.092760"], ["year", 1900]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 5], ["created_at", "2015-02-05 18:56:06.095772"], ["name", "anonymous"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:06.095772"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["beer_id", 5], ["created_at", "2015-02-05 18:56:06.098739"], ["score", 9], ["updated_at", "2015-02-05 18:56:06.098739"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:06.102210"], ["name", "anonymous"], ["updated_at", "2015-02-05 18:56:06.102210"], ["year", 1900]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 6], ["created_at", "2015-02-05 18:56:06.107445"], ["name", "anonymous"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:06.107445"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["beer_id", 6], ["created_at", "2015-02-05 18:56:06.110320"], ["score", 25], ["updated_at", "2015-02-05 18:56:06.110320"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mRating Load (0.2ms)[0m  SELECT  "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  ORDER BY "ratings"."score" DESC LIMIT 1  [["user_id", 1]]
+  [1m[36mBeer Load (0.1ms)[0m  [1mSELECT  "beers".* FROM "beers"  WHERE "beers"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:06.122635"], ["password_digest", "$2a$04$efrpOv6wouM9oU1ER9Ld9OBJDk.Z/XnthRsGAn/rIJtVIHGbN.hVW"], ["updated_at", "2015-02-05 18:56:06.122635"], ["username", "Pekka"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:06.129811"], ["password_digest", "$2a$04$6Sl6B5MNBC81o7GEKetrJu5xouV/s/W5CM6f1Afqa.19uqTRU0YWu"], ["updated_at", "2015-02-05 18:56:06.129811"], ["username", "Pekka"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:06.137543"], ["password_digest", "$2a$04$jjwwZYBusxltlMjkBZu18OdsbkDN0z9ltb/ESs7/iKB.2Vf7xaplu"], ["updated_at", "2015-02-05 18:56:06.137543"], ["username", "Pekka"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:06.140345"], ["name", "anonymous"], ["updated_at", "2015-02-05 18:56:06.140345"], ["year", 1900]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:06.142604"], ["name", "anonymous"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:06.142604"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["beer_id", 1], ["created_at", "2015-02-05 18:56:06.145245"], ["score", 10], ["updated_at", "2015-02-05 18:56:06.145245"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:06.147672"], ["name", "anonymous"], ["updated_at", "2015-02-05 18:56:06.147672"], ["year", 1900]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 2], ["created_at", "2015-02-05 18:56:06.149836"], ["name", "anonymous"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:06.149836"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["beer_id", 2], ["created_at", "2015-02-05 18:56:06.152461"], ["score", 20], ["updated_at", "2015-02-05 18:56:06.152461"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  SELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id" WHERE "ratings"."user_id" = ?  ORDER BY Beers.style  [["user_id", 1]]
+  [1m[36m (1.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:06.166401"], ["password_digest", "$2a$04$uG02eXNsAEEy8w59eqtmOOqx4FeQo/X1ZMR7gYktX3s7jkCG2bYKO"], ["updated_at", "2015-02-05 18:56:06.166401"], ["username", "Pekka"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:06.169549"], ["name", "anonymous"], ["updated_at", "2015-02-05 18:56:06.169549"], ["year", 1900]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:06.174548"], ["name", "anonymous"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:06.174548"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["beer_id", 1], ["created_at", "2015-02-05 18:56:06.178992"], ["score", 10], ["updated_at", "2015-02-05 18:56:06.178992"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:06.182081"], ["name", "anonymous"], ["updated_at", "2015-02-05 18:56:06.182081"], ["year", 1900]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 2], ["created_at", "2015-02-05 18:56:06.184593"], ["name", "anonymous"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:06.184593"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["beer_id", 2], ["created_at", "2015-02-05 18:56:06.188559"], ["score", 20], ["updated_at", "2015-02-05 18:56:06.188559"], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:06.196792"], ["name", "Brewdog"], ["updated_at", "2015-02-05 18:56:06.196792"], ["year", 1995]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 3], ["created_at", "2015-02-05 18:56:06.199764"], ["name", "vehnyli"], ["style", "Weizen"], ["updated_at", "2015-02-05 18:56:06.199764"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["beer_id", 3], ["created_at", "2015-02-05 18:56:06.205407"], ["score", 22], ["updated_at", "2015-02-05 18:56:06.205407"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id" WHERE "ratings"."user_id" = ?  ORDER BY Beers.style[0m  [["user_id", 1]]
+  [1m[35m (1.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:06.218160"], ["password_digest", "$2a$04$jfsZtGbfB6THSGDZZ0azI.a38MLCvTSyUhcNCiXdVtgCaEWKB1Vcy"], ["updated_at", "2015-02-05 18:56:06.218160"], ["username", "Pekka"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:06.226075"], ["password_digest", "$2a$04$cTO/IZ7vriU98X85f5RaiO9fCoTzbENewH5Ke0i9qMaa4nGOM0z0G"], ["updated_at", "2015-02-05 18:56:06.226075"], ["username", "Pekka"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:06.238241"], ["password_digest", "$2a$04$Cj0rgbzCFEpkP54D/sNnxOiKa269wG0o6iWNG82eRbHMB5uSRtmMq"], ["updated_at", "2015-02-05 18:56:06.238241"], ["username", "Pekka"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:06.244072"], ["name", "anonymous"], ["updated_at", "2015-02-05 18:56:06.244072"], ["year", 1900]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:06.248471"], ["name", "anonymous"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:06.248471"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["beer_id", 1], ["created_at", "2015-02-05 18:56:06.252325"], ["score", 10], ["updated_at", "2015-02-05 18:56:06.252325"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id" WHERE "ratings"."user_id" = ?  ORDER BY Beers.brewery_id[0m  [["user_id", 1]]
+  [1m[35mBrewery Load (0.1ms)[0m  SELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'Pekka' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:06.264194"], ["password_digest", "$2a$04$qqMRYe365geIWcAxR84EdOXXTNdnQbpEUkX6IPlv/SDR6jezh0wHm"], ["updated_at", "2015-02-05 18:56:06.264194"], ["username", "Pekka"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)  [["created_at", "2015-02-05 18:56:06.266967"], ["name", "anonymous"], ["updated_at", "2015-02-05 18:56:06.266967"], ["year", 1900]]
+  [1m[36m (6.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["brewery_id", 1], ["created_at", "2015-02-05 18:56:06.276671"], ["name", "anonymous"], ["style", "Lager"], ["updated_at", "2015-02-05 18:56:06.276671"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["beer_id", 1], ["created_at", "2015-02-05 18:56:06.280565"], ["score", 10], ["updated_at", "2015-02-05 18:56:06.280565"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "breweries" ("created_at", "name", "updated_at", "year") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-02-05 18:56:06.283310"], ["name", "Brewdog"], ["updated_at", "2015-02-05 18:56:06.283310"], ["year", 1995]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "beers" ("brewery_id", "created_at", "name", "style", "updated_at") VALUES (?, ?, ?, ?, ?)  [["brewery_id", 2], ["created_at", "2015-02-05 18:56:06.289669"], ["name", "vehnyli"], ["style", "Weizen"], ["updated_at", "2015-02-05 18:56:06.289669"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "ratings" ("beer_id", "created_at", "score", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["beer_id", 2], ["created_at", "2015-02-05 18:56:06.292886"], ["score", 22], ["updated_at", "2015-02-05 18:56:06.292886"], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mSQL (0.4ms)[0m  SELECT "ratings"."id" AS t0_r0, "ratings"."score" AS t0_r1, "ratings"."beer_id" AS t0_r2, "ratings"."created_at" AS t0_r3, "ratings"."updated_at" AS t0_r4, "ratings"."user_id" AS t0_r5, "beers"."id" AS t1_r0, "beers"."name" AS t1_r1, "beers"."style" AS t1_r2, "beers"."brewery_id" AS t1_r3, "beers"."created_at" AS t1_r4, "beers"."updated_at" AS t1_r5 FROM "ratings" LEFT OUTER JOIN "beers" ON "beers"."id" = "ratings"."beer_id" WHERE "ratings"."user_id" = ?  ORDER BY Beers.brewery_id  [["user_id", 1]]
+  [1m[36mBrewery Load (0.1ms)[0m  [1mSELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBrewery Load (0.1ms)[0m  SELECT  "breweries".* FROM "breweries"  WHERE "breweries"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
