@@ -36,6 +36,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'httparty'
 
 group :test do
+  # Block HTTP queries for testing!
+  gem 'webmock'
 
   # Test fixtures
   gem 'factory_girl_rails'
