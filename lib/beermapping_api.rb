@@ -8,9 +8,10 @@ end
 private
 
 def self.fetch_places_in(city)
-    url = "http://beermapping.com/webservice/loccity/#{key}/"
+    # this url requires APIKEY env variable to be set:
+    # url = "http://beermapping.com/webservice/loccity/#{key}/"
     # alternate url:
-    # url = 'http://stark-oasis-9187.herokuapp.com/api/'
+    url = 'http://stark-oasis-9187.herokuapp.com/api/'
     response = HTTParty.get "#{url}#{ERB::Util.url_encode(city)}"
     places = response.parsed_response["bmp_locations"]["location"]
 
@@ -23,6 +24,7 @@ def self.fetch_places_in(city)
   end
 
   def self.key
-    "1b92f28b01a9ac285131a6154cc72ac4"
+    raise "APIKEY env variable not defined" if ENV['APIKEY'].nil?
+    ENV['APIKEY']
   end
 end

@@ -17,7 +17,8 @@ Rails.application.configure do
   config.static_cache_control = 'public, max-age=3600'
 
   # Use memory for test cache (required by Travis, cannot write to file system!!)
-  config.cache_store = :memory_store
+  # expire in an hour
+  config.cache_store = :memory_store, {expires_in: 3600}
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
