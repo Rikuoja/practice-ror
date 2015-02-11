@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @style.name %></h2>
+
+<em>
+  <%= @style.description %>
+</em>
+
+<p> Number of beers
+  <%= @style.beers.count %>
+</p>
+
+<ul>
+ <% @style.beers.each do |beer| %>
+  <li>
+    <%= link_to beer.name, beer %>
+  </li>
+ <% end %>
+</ul>
+
+<% if @style.ratings.empty? %>
+  beers of this style have not yet been rated!
+<% else %>
+  Has <%= pluralize(@style.ratings.count, 'rating') %>, average <%= @style.average_rating %>
+<% end %>
+
+<br>
+
+<%= link_to 'Edit', edit_style_path(@style) %>

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :beers
 
+  resources :styles
+
   resources :breweries
 
   resources :ratings, only: [:index, :new, :create, :destroy]

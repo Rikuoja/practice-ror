@@ -2,6 +2,7 @@ require 'rails_helper'
 
 MembershipsController
 BeerClubsController
+StylesController
 
 def create_beer_with_rating(score, user)
   beer = FactoryGirl.create(:beer)
@@ -25,7 +26,7 @@ RSpec.describe Beer, :type => :model do
   end
 
   describe "with a name and style" do
-    let(:beer){ Beer.create name:"Testiolut", style:"Weizen" }
+    let(:beer){FactoryGirl.create(:beer)}
 
     it "is saved" do
       expect(beer).to be_valid

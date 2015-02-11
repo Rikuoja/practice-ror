@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     return nil if ratings.empty?
     rated_styles={}
     #enumerate with same style ratings chunked together:
-    ratings.includes(:beer).order("Beers.style").chunk{ |rating| rating.beer.style}.each {
+    ratings.includes(:beer).order("Beers.style_id").chunk{ |rating| rating.beer.style}.each {
         |style, ratings|
         rated_styles[style]=average_rating_from ratings}
     rated_styles.max[0]   #max gives the [style, average] array with the highest average

@@ -32,13 +32,22 @@ FactoryGirl.define do
   factory :beer do
     name "anonymous"
     brewery
-    style "Lager"
+    style
   end
 
   factory :beer2, class: Beer do
     name "vehnyli"
     association :brewery, factory: :brewery2
-    style "Weizen"
+    association :style, factory: :style2
   end
 
+  factory :style do
+    name "Lager"
+    description ""
+  end
+
+  factory :style2, class: Style do
+    name "Weizen"
+    description ""
+  end
 end
