@@ -1,5 +1,5 @@
 class Style < ActiveRecord::Base
-  include RatingAverage
+  include RatingMethods
 
   validates :name, presence: true
 

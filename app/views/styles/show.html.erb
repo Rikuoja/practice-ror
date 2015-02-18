@@ -21,7 +21,7 @@
 <% if @style.ratings.empty? %>
   beers of this style have not yet been rated!
 <% else %>
-  Has <%= pluralize(@style.ratings.count, 'rating') %>, average <%= @style.average_rating %>
+  Has <%= pluralize(@style.ratings.count, 'rating') %>, average <%= round @style.average_rating %>
 <% end %>
 
 <br>

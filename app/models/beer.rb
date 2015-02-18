@@ -1,5 +1,5 @@
 class Beer < ActiveRecord::Base
-  include RatingAverage
+  include RatingMethods
 
   belongs_to :brewery
   belongs_to :style

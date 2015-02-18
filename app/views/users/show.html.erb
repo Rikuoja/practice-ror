@@ -15,7 +15,7 @@
   <p>has not yet rated any beers</p>
 <% else %>
   <p>
-    Has made <%= pluralize(@user.ratings.count, 'rating') %>, average <%= @user.average_rating %>.
+    Has made <%= pluralize(@user.ratings.count, 'rating') %>, average <%= round @user.average_rating %>.
     Favorite style is <%= @user.favorite_style.name %>.
     Favorite brewery is <%= @user.favorite_brewery.name %>.
   </p>

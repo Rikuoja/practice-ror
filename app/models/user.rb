@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  include RatingAverage
+  include RatingMethods
 
   has_secure_password
 
@@ -39,5 +39,6 @@ class User < ActiveRecord::Base
       rated_breweries[brewery]=average_rating_from ratings}
     rated_breweries.max[0]   #max gives the [brewery, average] array with the highest average
   end
+
 
 end
