@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get 'signin', to: 'sessions#new'
   delete 'signout', to: 'sessions#destroy'
 
+  resources :users do
+    post 'freeze_user', on: :member
+  end
+
   resource :session, only: [:new, :create]
 
   resources :beers

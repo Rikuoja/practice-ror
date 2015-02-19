@@ -5,6 +5,10 @@
     <tr>
       <th>Username</th>
       <th colspan="1"></th>
+      <th></th>
+      <% if current_user.admin %>
+      <th></th>
+          <% end %>
     </tr>
   </thead>
 
@@ -12,6 +16,14 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.username, user %></td>
+            <% if user.admin %>
+                <td><span class="label label-info"> administrator</span></td>
+                <% end %>
+        <% if current_user.admin %>
+        <% if user.account_frozen  %>
+            <td><span class="label label-info">account frozen</span></td>
+        <% end %>
+            <% end %>
       </tr>
     <% end %>
   </tbody>

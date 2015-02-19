@@ -6,6 +6,12 @@
         1,
         null,
         1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
         null,
         1,
         1,
@@ -258,16 +264,21 @@
         1,
         null,
         1,
-        112,
-        88,
+        127,
+        103,
         null,
         null,
         1,
         4,
         null,
+        null,
+        1,
+        0,
+        null,
         null
       ],
       "/Users/riku/Dropbox/Ruby2015/ratebeer2/app/controllers/beer_clubs_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -351,6 +362,7 @@
         null
       ],
       "/Users/riku/Dropbox/Ruby2015/ratebeer2/app/controllers/styles_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -446,7 +458,11 @@
         10,
         10,
         9,
+        0,
+        null,
         9,
+        9,
+        null,
         null,
         1,
         null,
@@ -463,6 +479,7 @@
       "/Users/riku/Dropbox/Ruby2015/ratebeer2/app/controllers/users_controller.rb": [
         1,
         1,
+        1,
         null,
         null,
         null,
@@ -478,6 +495,15 @@
         null,
         1,
         1,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        null,
+        0,
         null,
         null,
         null,
@@ -552,6 +578,7 @@
         null
       ],
       "/Users/riku/Dropbox/Ruby2015/ratebeer2/app/controllers/beers_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -637,6 +664,7 @@
         null
       ],
       "/Users/riku/Dropbox/Ruby2015/ratebeer2/app/controllers/breweries_controller.rb": [
+        1,
         1,
         1,
         1,
@@ -845,6 +873,6 @@
         null
       ]
     },
-    "timestamp": 1424302851
+    "timestamp": 1424360591
   }
 }

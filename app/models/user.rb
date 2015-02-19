@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
   include RatingMethods
 
+  scope :admin, -> { where admin:true }
+  scope :regular, -> { where admin:[nil,false] }
+
+  scope :account_frozen, -> { where account_frozen:true}
+  scope :active, -> { where account_frozen:[nil,false] }
+
   has_secure_password
 
   has_many :ratings, dependent: :destroy

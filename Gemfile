@@ -54,6 +54,7 @@ group :test do
 
   # Test coverage
   gem 'simplecov', require: false
+  gem "codeclimate-test-reporter"
 end
 
 group :development, :test do

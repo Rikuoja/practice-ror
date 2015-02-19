@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :freeze_user]
+  before_action :ensure_that_admin, only: [:destroy, :freeze_user]
 
   # GET /users
   # GET /users.json
@@ -15,6 +16,15 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+  end
+
+  # POST /users/1/freeze_user
+  def freeze_user
+    @user.update_attribute :account_frozen, (not @user.account_frozen)
+
+    new_status = @user.account_frozen? ? "frozen" : "not frozen"
+
+    redirect_to :back, notice:"user #{@user.username} account is now #{new_status}"
   end
 
   # GET /users/1/edit
