@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       if user.account_frozen
         redirect_to :back, notice: "Your account is frozen. Please contact an administrator."
       else
+        reset_session
       session[:user_id] = user.id
       redirect_to user_path(user), notice: "Welcome back!"
       end
